@@ -1,24 +1,48 @@
 <template>
-  <div class="container"></div>
+  <div class="container">
+    <div class="field">
+      <label class="label">Subject</label>
+      <div class="control">
+        <div class="select">
+          <select v-model="selectModels">
+            <option disabled value="">Please select one</option>
+            <option v-for="(model, key) in selectModels" :key="key">{{
+              model
+            }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <label class="label">Subject</label>
+      <div class="control">
+        <div class="select">
+          <select v-model="selectDecks">
+            <option disabled value="">Please select one</option>
+            <option v-for="(deck, key) in selectDecks" :key="key">{{
+              deck
+            }}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      models: () => {
-        {
-        }
-      },
       connected: false,
-      error: ""
+      error: "",
+      selected: ""
     };
   },
   mounted: function() {
     console.log(this.$axios.defaults);
-    this.checkAnki().then(() => {
-      this.fetchModels();
-      this.fetchDecks();
+    this.checkAnki().then(async () => {
+      await this.fetchModels();
+      await this.fetchDecks();
     });
   },
   methods: {
@@ -43,14 +67,13 @@ export default {
         .$post(
           "http://localhost:8765",
           JSON.stringify({
-            action: "modelNamesAndIds",
+            action: "modelNames",
             version: 6
           })
         )
-        .then(res => {
+        .then(async res => {
           console.log(res);
-          this.models = res.result;
-          this.$store.dispatch("anki/setModels", res.result);
+          await this.$store.dispatch("anki/setModels", res.result);
         })
         .catch(e => {
           this.error = "Unable to fetch models";
@@ -61,18 +84,36 @@ export default {
         .$post(
           "http://localhost:8765",
           JSON.stringify({
-            action: "deckNamesAndIds",
+            action: "deckNames",
             version: 6
           })
         )
-        .then(res => {
+        .then(async res => {
           console.log(res);
           this.models = res.result;
-          this.$store.dispatch("anki/setDecks", res.result);
+          await this.$store.dispatch("anki/setDecks", res.result);
         })
         .catch(e => {
           this.error = "Unable to fetch decks";
         });
+    }
+  },
+  computed: {
+    selectModels: {
+      get() {
+        return this.$store.state.anki.models;
+      },
+      set(value) {
+        this.$store.dispatch("anki/setCurrentModel", value);
+      }
+    },
+    selectDecks: {
+      get() {
+        return this.$store.state.anki.decks;
+      },
+      set(value) {
+        this.$store.dispatch("anki/setCurrentDeck", value);
+      }
     }
   }
 };
