@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1594930553",layout:"default",error:null,state:{anki:{models:[],decks:[],currentModel:{},currentField:a,currentDeck:a},sentences:{sentences:[],loading:false}},serverRendered:true,routePath:"\u002Fhow-to",config:{}}}(""));
