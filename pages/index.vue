@@ -1,36 +1,16 @@
 <template>
   <div class="container">
-    <div class="field">
-      <label class="label">Subject</label>
-      <div class="control">
-        <div class="select">
-          <select v-model="selectModels">
-            <option disabled value="">Please select one</option>
-            <option v-for="(model, key) in selectModels" :key="key">{{
-              model
-            }}</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="field">
-      <label class="label">Subject</label>
-      <div class="control">
-        <div class="select">
-          <select v-model="selectDecks">
-            <option disabled value="">Please select one</option>
-            <option v-for="(deck, key) in selectDecks" :key="key">{{
-              deck
-            }}</option>
-          </select>
-        </div>
-      </div>
-    </div>
+    <the-form></the-form>
   </div>
 </template>
 
 <script>
+import TheForm from '@/components/TheForm';
+
 export default {
+  components: {
+    TheForm
+  },
   data() {
     return {
       connected: false,
@@ -39,7 +19,6 @@ export default {
     };
   },
   mounted: function() {
-    console.log(this.$axios.defaults);
     this.checkAnki().then(async () => {
       await this.fetchModels();
       await this.fetchDecks();
@@ -52,13 +31,14 @@ export default {
         .then(async res => {
           if (!res.error) {
             this.connected = true;
+          } else {
+            throw new error(res.error);
           }
-          console.log(res);
         })
         .catch(e => {
           this.connected = false;
           this.error = "Could not connect to Anki";
-          console.log(this.error);
+          console.log(e);
           throw new error("Could not connect to Anki");
         });
     },
@@ -98,34 +78,10 @@ export default {
         });
     }
   },
-  computed: {
-    selectModels: {
-      get() {
-        return this.$store.state.anki.models;
-      },
-      set(value) {
-        this.$store.dispatch("anki/setCurrentModel", value);
-      }
-    },
-    selectDecks: {
-      get() {
-        return this.$store.state.anki.decks;
-      },
-      set(value) {
-        this.$store.dispatch("anki/setCurrentDeck", value);
-      }
-    }
-  }
+
 };
 </script>
 
 <style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+
 </style>
