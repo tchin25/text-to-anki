@@ -1,15 +1,18 @@
 <template>
   <div class="container">
     <the-form></the-form>
+    <the-sentence-table></the-sentence-table>
   </div>
 </template>
 
 <script>
 import TheForm from '@/components/TheForm';
+import TheSentenceTable from '@/components/TheSentenceTable'
 
 export default {
   components: {
-    TheForm
+    TheForm,
+    TheSentenceTable
   },
   data() {
     return {

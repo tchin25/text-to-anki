@@ -14,7 +14,8 @@ export const actions = {
     for (let i = 0; i < sentences.length; i++) {
       sentences[i] = {
         id: i,
-        sentence: sentences[i]
+        sentence: sentences[i],
+        status: -1
       };
     }
     commit("SET_SENTENCES", sentences);
