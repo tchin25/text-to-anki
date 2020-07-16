@@ -51,7 +51,7 @@ export default {
       let regex =
         "['。’‘「」【】　？！!\"#$%&()\*+,\-\.\/:;<=>?@\[\\\]\^\n\t_`{|}~]";
       if (this.regex) {
-        this.regex = regex;
+        regex = this.regex;
       }
       let regexExp = new RegExp(regex, "gm");
       let sentences = this.text.split(regexExp);
