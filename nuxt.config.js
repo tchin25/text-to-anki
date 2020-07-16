@@ -21,14 +21,14 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    title: 'Sentence Export To Anki',
+    title: 'Text To Anki',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Sentence Export to Anki' }
+      { hid: 'description', name: 'description', content: 'Export Sentences to Anki' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '@/favicon.ico' }
     ]
   },
   /*

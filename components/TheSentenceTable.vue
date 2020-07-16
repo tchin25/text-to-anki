@@ -4,7 +4,7 @@
       <tr>
         <th>Sentence</th>
         <th>Status</th>
-        <th>Delete</th>
+        <th class="has-text-centered">Delete</th>
       </tr>
     </thead>
     <tbody>

@@ -2,14 +2,15 @@
   "name": "anki-connect-sentence",
   "version": "1.0.0",
   "private": true,
+  "homepage": "https://tchin25.github.io/text-to-anki/",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "export": "nuxt export",
     "serve": "nuxt serve",
-    "build:gh-pages": "set DEPLOY_ENV=GH_PAGES && nuxt build",
-    "generate:gh-pages": "set DEPLOY_ENV=GH_PAGES && nuxt build && nuxt export",
+    "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
+    "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build && cross-env DEPLOY_ENV=GH_PAGES nuxt export",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
@@ -22,5 +23,7 @@
     "sass-loader": "^9.0.2",
     "vue-material-design-icons": "^4.7.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "cross-env": "^7.0.2"
+  }
 }

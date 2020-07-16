@@ -4,7 +4,7 @@
       <div class="level">
         <div class="level-left">
           <figure class="image is-64x64">
-            <img class="is-rounded" src="/santathomas.png" />
+            <img class="is-rounded" src="@/static/santathomas.png" />
           </figure>
           <h1 class="title is-4 ml-2">
             A side project by

@@ -20,7 +20,11 @@
           This website domain added to AnkiConnect's WebCorsOriginList
           <ul>
             <li>
-              In Anki: <code>Tools > Add-ons > AnkiConnect > Config</code>
+              In Anki: <code>Tools > Add-ons > AnkiConnect > Config</code> and then make sure it looks something like this:
+              <pre><code>    "webCorsOriginList": [
+        "http://localhost",
+        "https://tchin25.github.io"
+    ]</code></pre>
             </li>
           </ul>
         </li>
