@@ -9,12 +9,14 @@
     "export": "nuxt export",
     "serve": "nuxt serve",
     "build:gh-pages": "set DEPLOY_ENV=GH_PAGES && nuxt build",
-    "generate:gh-pages": "set DEPLOY_ENV=GH_PAGES && nuxt build && nuxt export"
+    "generate:gh-pages": "set DEPLOY_ENV=GH_PAGES && nuxt build && nuxt export",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/bulma": "^1.2.7",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "gh-pages": "^3.1.0",
     "node-sass": "^4.14.1",
     "nuxt": "^2.13.0",
     "sass-loader": "^9.0.2",
