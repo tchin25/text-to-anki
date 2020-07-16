@@ -40,7 +40,7 @@
         </div>
       </div>
       <div class="column">
-        <div class="field">
+        <div class="field" id="textarea-field">
           <label class="label">Paste Text Here</label>
           <div class="control">
             <textarea class="textarea" placeholder="Textarea"></textarea>
@@ -81,10 +81,21 @@ export default {
 
 <style scoped lang="scss">
 .form-input {
+  width: 100%;
+  select {
     width: 100%;
-    select {
-        width: 100%;
-    }
+  }
 }
 
+#textarea-field {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .control {
+    flex-grow: 1;
+    .textarea {
+        height: 100%;
+    }
+  }
+}
 </style>
