@@ -1,8 +1,8 @@
 <template>
   <div class="field">
     <label class="label">Deck</label>
-    <div class="control">
-      <div class="select form-input">
+    <div class="control is-expanded">
+      <div class="select is-fullwidth">
         <select required v-model="selected">
           <option disabled value="">Please select one</option>
           <option v-for="(deck, key) in selectDecks" :key="key">{{

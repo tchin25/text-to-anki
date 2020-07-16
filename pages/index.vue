@@ -1,18 +1,21 @@
 <template>
   <div class="container">
-    <the-form></the-form>
+    <text-parse-form></text-parse-form>
     <the-sentence-table></the-sentence-table>
+    <export-form></export-form>
   </div>
 </template>
 
 <script>
-import TheForm from '@/components/TheForm';
-import TheSentenceTable from '@/components/TheSentenceTable'
+import TextParseForm from "@/components/TextParseForm";
+import TheSentenceTable from "@/components/TheSentenceTable";
+import ExportForm from "@/components/ExportForm";
 
 export default {
   components: {
-    TheForm,
-    TheSentenceTable
+    TextParseForm,
+    TheSentenceTable,
+    ExportForm
   },
   data() {
     return {
@@ -80,11 +83,8 @@ export default {
           this.error = "Unable to fetch decks";
         });
     }
-  },
-
+  }
 };
 </script>
 
-<style>
-
-</style>
+<style></style>
