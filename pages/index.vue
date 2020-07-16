@@ -5,7 +5,6 @@
     <the-sentence-table></the-sentence-table>
     <export-form></export-form>
     </div>
-
   </div>
 </template>
 
