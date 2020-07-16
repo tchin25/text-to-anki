@@ -2,6 +2,7 @@ export const state = () => ({
   models: [],
   decks: [],
   currentModel: {},
+  currentField: "",
   currentDeck: ""
 });
 
@@ -17,6 +18,9 @@ export const mutations = {
   },
   SET_CURRENT_MODEL(state, data) {
     state.currentModel = data;
+  },
+  SET_CURRENT_FIELD(state, data) {
+    state.currentField = data;
   }
 };
 
@@ -54,5 +58,14 @@ export const actions = {
       }
     }
     commit("SET_CURRENT_DECK", "");
+  },
+  setCurrentField({ state, commit }, name) {
+    for (let field of state.currentModel.result) {
+      if (field === name) {
+        commit("SET_CURRENT_FIELD", field);
+        return;
+      }
+    }
+    commit("SET_CURRENT_FIELD", "");
   }
 };
