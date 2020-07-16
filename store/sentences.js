@@ -4,7 +4,7 @@ export const state = () => ({
 
 export const mutations = {
   SET_SENTENCES(state, data) {
-    state.models = data;
+    state.sentences = data;
   }
 };
 

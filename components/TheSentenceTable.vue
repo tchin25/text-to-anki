@@ -8,12 +8,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Test</td>
-        <td>Test</td>
-        <td>Test</td>
-      </tr>
-      <sentence-row></sentence-row>
+      <sentence-row
+        v-for="sentence in sentences"
+        :key="sentence.id"
+        :row="sentence"
+      ></sentence-row>
     </tbody>
   </table>
 </template>
@@ -23,6 +22,11 @@ import SentenceRow from "./TheSentenceTable/SentenceRow";
 export default {
   components: {
     SentenceRow
+  },
+  computed: {
+    sentences() {
+      return this.$store.state.sentences.sentences || [];
+    }
   }
 };
 </script>

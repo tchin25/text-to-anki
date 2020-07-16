@@ -1,5 +1,5 @@
 <template>
-  <form @submit="tokenizeText">
+  <form @submit.prevent="tokenizeText">
     <div class="columns">
       <div class="column is-one-quarter">
         <select-deck></select-deck>
