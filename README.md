@@ -3,11 +3,11 @@
 > __Requires Anki for desktop and a properly configured AnkiConnect add-on to work__
 > More information in the 'How To' section of the website
 
-###Features
+### Features
 - Tokenize text with custom regex
 - Export to specific field within a card model to a deck
 
-####[See Live Website Here](https://tchin25.github.io/text-to-anki/)
+#### [See Live Website Here](https://tchin25.github.io/text-to-anki/)
 
 ---
 
