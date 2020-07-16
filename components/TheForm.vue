@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <form @submit="tokenizeText">
     <div class="columns">
       <div class="column is-one-quarter">
         <select-deck></select-deck>
@@ -18,7 +18,7 @@
           <p class="help">Leave blank for default.</p>
         </div>
         <div class="control">
-          <button class="button is-primary form-input" @click="tokenizeText">
+          <button class="button is-primary form-input" type="submit" value="Submit">
             Submit
           </button>
         </div>
@@ -28,6 +28,7 @@
           <label class="label">Paste Text Here</label>
           <div class="control">
             <textarea
+            required
               class="textarea"
               placeholder="Textarea"
               v-model="text"
@@ -36,7 +37,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </form>
 </template>
 
 <script>
@@ -54,7 +55,6 @@ export default {
     return {
       regex: "",
       text: "",
-      sentences: () => []
     };
   },
   methods: {
@@ -73,7 +73,7 @@ export default {
       let sentences = this.text.split(regexExp);
       sentences.forEach(sentence => sentence.trim());
       sentences = sentences.filter(sentence => sentence.length > 0);
-      this.sentences = sentences;
+      this.$store.dispatch("sentences/setSentences", sentences);
       console.log(sentences);
     }
   }

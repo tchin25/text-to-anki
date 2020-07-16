@@ -3,7 +3,7 @@
     <label class="label">Deck</label>
     <div class="control">
       <div class="select form-input">
-        <select v-model="selected">
+        <select required v-model="selected">
           <option disabled value="">Please select one</option>
           <option v-for="(deck, key) in selectDecks" :key="key">{{
             deck
