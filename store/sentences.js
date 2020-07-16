@@ -5,6 +5,9 @@ export const state = () => ({
 export const mutations = {
   SET_SENTENCES(state, data) {
     state.sentences = data;
+  },
+  DELETE_SENTENCE(state, id) {
+    state.sentences = state.sentences.filter(sentence => sentence.id != id);
   }
 };
 
@@ -19,5 +22,8 @@ export const actions = {
       };
     }
     commit("SET_SENTENCES", sentences);
+  },
+  deleteSentence({ commit }, id) {
+    commit("DELETE_SENTENCE", id);
   }
 };

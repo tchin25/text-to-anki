@@ -2,16 +2,20 @@
   <tr>
     <td>{{ row.sentence }}</td>
     <td><status :status="row.status"></status></td>
-    <td>Test</td>
+    <td class="has-text-centered delete-wrapper">
+      <delete-button :id="row.id"></delete-button>
+    </td>
   </tr>
 </template>
 
 <script>
 import Status from "./SentenceRow/Status";
+import DeleteButton from "./SentenceRow/DeleteButton";
 
 export default {
   components: {
-    Status
+    Status,
+    DeleteButton
   },
   props: {
     row: {
@@ -28,4 +32,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped lang="scss"></style>
