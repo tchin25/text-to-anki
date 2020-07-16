@@ -1,6 +1,8 @@
 # text-to-anki
 > A web app created to convert text into sentence cards and import it into Anki using the AnkiConnect api
+
 > __Requires Anki for desktop and a properly configured AnkiConnect add-on to work__
+
 > More information in the 'How To' section of the website
 
 ### Features
