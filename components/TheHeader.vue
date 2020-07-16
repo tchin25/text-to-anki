@@ -1,6 +1,10 @@
 <template>
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
+      <h1 class="navbar-item title mb-0">
+        Text To Anki
+      </h1>
+
       <a
         role="button"
         class="navbar-burger burger"
@@ -16,8 +20,12 @@
       </a>
     </div>
 
-    <div id="navbarItems" class="navbar-menu" :class="isActive ? 'is-active' : ''">
-      <div class="navbar-start ml-6">
+    <div
+      id="navbarItems"
+      class="navbar-menu"
+      :class="isActive ? 'is-active' : ''"
+    >
+      <div class="navbar-start">
         <nuxt-link to="/" class="navbar-item">
           Home
         </nuxt-link>
@@ -42,4 +50,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped lang="scss">
+.navbar{
+    border-bottom: 1px solid lightgray;
+}
+</style>

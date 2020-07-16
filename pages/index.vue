@@ -1,9 +1,19 @@
 <template>
   <div class="container">
-    <text-parse-form></text-parse-form>
+    <h3 class="title has-text-centered mt-4">
+      Read The 'How To' Page Before Continuing
+    </h3>
+    <h4 v-if="this.error" class="subtitle has-text-centered has-text-danger">
+      {{ this.error }}
+    </h4>
+    <h4 v-else-if="this.connected" class="subtitle has-text-centered has-text-success">
+      Anki connection established
+    </h4>
+
+    <text-parse-form class="mt-6"></text-parse-form>
     <div v-if="sentencesLength > 0">
-    <the-sentence-table></the-sentence-table>
-    <export-form></export-form>
+      <the-sentence-table></the-sentence-table>
+      <export-form></export-form>
     </div>
   </div>
 </template>
