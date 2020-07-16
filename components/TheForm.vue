@@ -2,45 +2,9 @@
   <section>
     <div class="columns">
       <div class="column is-one-quarter">
-        <div class="field">
-          <label class="label">Deck</label>
-          <div class="control">
-            <div class="select form-input">
-              <select v-model="selectDecks">
-                <option disabled value="">Please select one</option>
-                <option v-for="(deck, key) in selectDecks" :key="key">{{
-                  deck
-                }}</option>
-              </select>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Card Model</label>
-            <div class="control">
-              <div class="select form-input">
-                <select v-model="selectModels">
-                  <option disabled value="">Please select one</option>
-                  <option v-for="(model, key) in selectModels" :key="key">{{
-                    model
-                  }}</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Field To Put Sentence</label>
-            <div class="control">
-              <div class="select form-input">
-                <select v-model="selectFields">
-                  <option disabled value="">Please select one</option>
-                  <option v-for="(field, key) in selectFields" :key="key">{{
-                    field
-                  }}</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </div>
+        <select-deck></select-deck>
+        <select-model></select-model>
+        <select-field></select-field>
         <div class="field">
           <label class="label">Tokenizer Characters</label>
           <div class="control">
@@ -76,39 +40,22 @@
 </template>
 
 <script>
+import SelectDeck from "./TheForm/SelectDeck";
+import SelectModel from "./TheForm/SelectModel";
+import SelectField from "./TheForm/SelectField";
+
 export default {
+  components: {
+    SelectDeck,
+    SelectModel,
+    SelectField
+  },
   data() {
     return {
       regex: "",
       text: "",
       sentences: () => []
     };
-  },
-  computed: {
-    selectModels: {
-      get() {
-        return this.$store.state.anki.models;
-      },
-      set(value) {
-        this.$store.dispatch("anki/setCurrentModel", value);
-      }
-    },
-    selectDecks: {
-      get() {
-        return this.$store.state.anki.decks;
-      },
-      set(value) {
-        this.$store.dispatch("anki/setCurrentDeck", value);
-      }
-    },
-    selectFields: {
-      get() {
-        return this.$store.state.anki.currentModel.result;
-      },
-      set(value) {
-        this.$store.dispatch("anki/setCurrentField", value);
-      }
-    }
   },
   methods: {
     tokenizeText() {
@@ -134,7 +81,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.form-input {
+.field /deep/ .form-input {
   width: 100%;
   select {
     width: 100%;

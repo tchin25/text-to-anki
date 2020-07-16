@@ -31,7 +31,7 @@ export const actions = {
   setDecks({ commit }, data) {
     commit("SET_DECKS", data);
   },
-  async setCurrentModel({ state, commit }, name) {
+  async setCurrentModel({ state, commit, dispatch }, name) {
     for (let modelName of state.models) {
       if (modelName === name) {
         let model = await this.$axios.$post(
@@ -45,6 +45,9 @@ export const actions = {
           })
         );
         commit("SET_CURRENT_MODEL", { name: modelName, ...model });
+        if (state.currentField) {
+          dispatch("setCurrentField", state.currentField);
+        }
         return;
       }
     }
