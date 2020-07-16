@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="exportSentences">
     <div class="columns">
       <div class="column">
         <select-deck></select-deck>
@@ -13,7 +13,11 @@
     </div>
     <div class="field">
       <div class="control">
-        <button class="button is-primary is-fullwidth" type="submit" value="Submit">
+        <button
+          class="button is-primary is-fullwidth"
+          type="submit"
+          value="Submit"
+        >
           Save Cards To Anki
         </button>
       </div>
@@ -31,6 +35,11 @@ export default {
     SelectDeck,
     SelectModel,
     SelectField
+  },
+  methods: {
+    exportSentences() {
+      this.$store.dispatch("sentences/exportSentences");
+    }
   }
 };
 </script>

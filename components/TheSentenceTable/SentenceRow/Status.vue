@@ -10,17 +10,17 @@ export default {
     status: {
       type: Number,
       required: true,
-      default: -1
+      default: 0
     }
   },
   computed: {
     computeStatus() {
       switch (this.status) {
+        case -1: {
+          return { status: "Error", css: "is-danger" };
+        }
         case 1: {
           return { status: "Saved", css: "is-success" };
-        }
-        case 2: {
-          return { status: "Error", css: "is-danger" };
         }
         default: {
           return { status: "No Status", css: "is-light" };
