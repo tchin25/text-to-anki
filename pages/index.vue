@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h3 class="title has-text-centered mt-4">
+    <h3 class="title has-text-centered mt-6">
       Read The 'How To' Page Before Continuing
     </h3>
     <h4 v-if="this.error" class="subtitle has-text-centered has-text-danger">

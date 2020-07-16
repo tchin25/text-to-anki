@@ -32,9 +32,9 @@
         <nuxt-link to="/how-to" class="navbar-item">
           How To
         </nuxt-link>
-        <nuxt-link to="/about" class="navbar-item">
+        <!-- <nuxt-link to="/about" class="navbar-item">
           About
-        </nuxt-link>
+        </nuxt-link> -->
       </div>
     </div>
   </nav>
