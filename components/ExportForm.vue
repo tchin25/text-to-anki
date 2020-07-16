@@ -17,6 +17,7 @@
           class="button is-primary is-fullwidth"
           type="submit"
           value="Submit"
+          :disabled="loading"
         >
           Save Cards To Anki
         </button>
@@ -39,6 +40,11 @@ export default {
   methods: {
     exportSentences() {
       this.$store.dispatch("sentences/exportSentences");
+    }
+  },
+  computed: {
+    loading() {
+      return this.$store.state.sentences.loading;
     }
   }
 };

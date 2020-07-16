@@ -41,9 +41,12 @@ export const actions = {
       fields[field] = "<br/>";
     }
 
-    for (let { sentence } of state.sentences) {
+    for (let sentence of state.sentences) {
+      if (sentence.status === 1) {
+        continue;
+      }
       let shallowCopy = { ...fields };
-      shallowCopy[rootState.anki.currentField] = sentence;
+      shallowCopy[rootState.anki.currentField] = sentence.sentence;
       let note = {
         deckName: rootState.anki.currentDeck,
         modelName: rootState.anki.currentModel.name,
@@ -64,6 +67,10 @@ export const actions = {
     let res = await this.$axios.$post("http://localhost:8765", params);
     let sentences = [];
     for (let i = 0; i < state.sentences.length; i++) {
+      if (state.sentences[i].status == 1) {
+        sentences.push({ ...state.sentences[i] });
+        continue;
+      }
       sentences.push({
         ...state.sentences[i],
         status: res.result[i] ? 1 : -1

@@ -1,8 +1,11 @@
 <template>
   <div class="container">
     <text-parse-form></text-parse-form>
+    <div v-if="sentencesLength > 0">
     <the-sentence-table></the-sentence-table>
     <export-form></export-form>
+    </div>
+
   </div>
 </template>
 
@@ -20,8 +23,7 @@ export default {
   data() {
     return {
       connected: false,
-      error: "",
-      selected: ""
+      error: ""
     };
   },
   mounted: function() {
@@ -82,6 +84,11 @@ export default {
         .catch(e => {
           this.error = "Unable to fetch decks";
         });
+    }
+  },
+  computed: {
+    sentencesLength() {
+      return this.$store.state.sentences.sentences.length || 0;
     }
   }
 };
