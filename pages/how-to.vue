@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container is-fluid">
     <h3 class="title mt-6">
       How To Use This Website
     </h3>
@@ -20,11 +20,15 @@
           This website domain added to AnkiConnect's WebCorsOriginList
           <ul>
             <li>
-              In Anki: <code>Tools > Add-ons > AnkiConnect > Config</code> and then make sure it looks something like this:
+              In Anki: <code>Tools > Add-ons > AnkiConnect > Config</code> and
+              then make sure it looks something like this:
               <pre><code>    "webCorsOriginList": [
         "http://localhost",
         "https://tchin25.github.io"
     ]</code></pre>
+            </li>
+            <li>
+              Restart Anki and refresh this website for it to take effect
             </li>
           </ul>
         </li>
@@ -50,16 +54,26 @@
       AnkiConnect. If you are a programmer, both of them are open source so you
       can go submit an issue or work on fixing it yourself.
       <br /><br />
-      <p>
+      <div>
         If you have issues with adding cards:
         <ul>
-            <li>There may be a duplicate of that card already in your deck</li>
-            <li>It might be an issue with AnkiConnect's addNotes api (an issue about it is already open on GitHub)</li>
-            <li>You might have changes some settings in Anki but the website still has the old settings
-                <ul><li>This website can't auto-detect when settings are changed in Anki, so you have to refresh the page or clear the cache</li></ul>
-            </li>
+          <li>There may be a duplicate of that card already in your deck</li>
+          <li>
+            It might be an issue with AnkiConnect's addNotes api (an issue about
+            it is already open on GitHub)
+          </li>
+          <li>
+            You might have changes some settings in Anki but the website still
+            has the old settings
+            <ul>
+              <li>
+                This website can't auto-detect when settings are changed in
+                Anki, so you have to refresh the page and/or clear the cache
+              </li>
+            </ul>
+          </li>
         </ul>
-      </p>
+      </div>
     </div>
   </div>
 </template>

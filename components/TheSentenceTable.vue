@@ -1,5 +1,5 @@
 <template>
-  <table class="table is-fullwidth">
+  <table class="table is-hoverable is-fullwidth">
     <thead>
       <tr>
         <th>Sentence</th>

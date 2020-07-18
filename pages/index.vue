@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container is-fluid">
     <h3 class="title has-text-centered mt-6">
       Read The 'How To' Page Before Continuing
     </h3>
