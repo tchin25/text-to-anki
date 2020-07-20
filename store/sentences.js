@@ -32,13 +32,22 @@ export const actions = {
   },
   async exportSentences({ state, commit, rootState }) {
     commit("SET_LOADING", true);
+    const { currentModel, currentDeck, currentField } = rootState.anki;
     let notes = [];
     let fields = {};
 
-    // Anki-Connect fails if some fields
-    // are undefined or even an empty string
-    for (let field of rootState.anki.currentModel.result) {
-      fields[field] = "<br/>";
+    // Anki-Connect fails if all fields on front of card is blank
+    for (let field of currentModel.result) {
+      // Quick fix for those with Japanese Support or Japanese Pronunciation addon
+      // Those addons can't auto-generate when fields are empty
+      if (
+        field.toLowerCase() == "reading" ||
+        field.toLowerCase() == "pronunciation"
+      ) {
+        fields[field] = "";
+      } else {
+        fields[field] = "<br/>";
+      }
     }
 
     for (let sentence of state.sentences) {
@@ -46,10 +55,10 @@ export const actions = {
         continue;
       }
       let shallowCopy = { ...fields };
-      shallowCopy[rootState.anki.currentField] = sentence.sentence;
+      shallowCopy[currentField] = sentence.sentence;
       let note = {
-        deckName: rootState.anki.currentDeck,
-        modelName: rootState.anki.currentModel.name,
+        deckName: currentDeck,
+        modelName: currentModel.name,
         fields: shallowCopy,
         tags: ["web-imported"]
       };
