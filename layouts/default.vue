@@ -1,7 +1,7 @@
 <template>
   <div id="main-container">
     <the-header></the-header>
-    <Nuxt />
+    <Nuxt style="max-width: 1024px;" />
     <the-footer></the-footer>
   </div>
 </template>
