@@ -59,6 +59,9 @@
         <ul>
           <li>There may be a duplicate of that card already in your deck</li>
           <li>
+            The first field of the card <i>must</i> be filled out for Anki to save it. There's currently something in the works to automatically insert a <code><{{`br`}}></code> tag into the first field if it isn't filled
+          </li>
+          <li>
             It might be an issue with AnkiConnect's addNotes api (an issue about
             it is already open on GitHub)
           </li>
