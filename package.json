@@ -19,7 +19,7 @@
     "@nuxtjs/bulma": "^1.2.7",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
     "gh-pages": "^3.1.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "nuxt": "^2.13.0",
     "sass-loader": "^9.0.2",
     "vue-material-design-icons": "^4.7.1"
